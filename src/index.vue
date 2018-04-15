@@ -1,21 +1,18 @@
 <template>
   <div class="wrapper">
-    <image :src="logo" class="logo" />
-    <text class="greeting">The environment is ready!</text>
-    <HelloWorld/>
+    <NavFooter/>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import NavFooter from '@/components/NavFooter.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavFooter
   },
   data () {
     return {
-      logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png'
     }
   }
 }
