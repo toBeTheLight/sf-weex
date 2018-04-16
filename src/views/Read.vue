@@ -1,8 +1,6 @@
 <template>
-  <div class="nav-page read">
-    <div class="page-header">
-      <text class="page-new">+</text>
-    </div>
+  <scroller class="nav-page read">
+    <FunctionHeader />
     <div class="read-header">
       <div class="read-types">
         <text class="read-type"
@@ -35,21 +33,17 @@
         <text class="indicator-text">刷新</text>
         <loading-indicator class="indicator"></loading-indicator>
       </refresh>
-      <cell class="read-item"
+      <BaseListItem class="read-item"
+        :key="item.id"
         v-for="item in readList"
-        :key="item.id">
-        <text class="read-item-title">{{item.title}}</text>
-        <div class="read-item-info">
-          <text class="read-item-type color333">{{item.type}}</text>
-          <text class="read-item-agree color333">{{item.agree}}赞同</text>
-          <text class="read-item-answer color333">{{item.answer}}回答</text>
-        </div>
-      </cell>
+        :item="item"/>
     </list>
-  </div>
+  </scroller>
 </template>
 
 <script>
+import FunctionHeader from '../components/FunctionHeader.vue'
+import BaseListItem from '../components/BaseListItem.vue'
 export default {
   data () {
     return {
@@ -123,26 +117,17 @@ export default {
         this.refreshing = false
       }, 2000)
     }
+  },
+  components: {
+    FunctionHeader,
+    BaseListItem
   }
-
 }
 </script>
 
 <style scoped>
 .read {
-  padding-top: 40px;
   align-items: flex-start;
-}
-.page-header {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 750px;
-  padding-right: 40px;
-  flex-shrink: 0;
-}
-.page-new {
-  font-size: 60px;
-  color: #009A61;
 }
 .read-header {
   padding-left: 40px;
@@ -155,11 +140,12 @@ export default {
 }
 .read-type {
   color: #757575;
-  font-size: 80px;
+  font-size: 70px;
   margin-right: 30px;
 }
 .read-type_active {
   color: black;
+  font-weight: 600;
 }
 .read-query {
   height: 110px;
@@ -187,33 +173,5 @@ export default {
   padding-right: 40px;
   height: 1000px;
   width: 750px;
-}
-.read-item {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-.read-item-title {
-  font-size: 50px;
-}
-.read-item-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
-}
-.read-item-type {
-  background-color: #eee;
-  font-size: 26px;
-  margin-right: 20px;
-}
-.read-item-agree {
-  font-size: 36px;
-  margin-right: 20px;
-}
-.read-item-answer {
-  font-size: 36px;
-}
-.color333 {
-  color: #333;
 }
 </style>

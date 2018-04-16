@@ -7,7 +7,7 @@
     <!-- 第一个页面内容-->
     <Read class="nav-page"/>
     <!-- 第二个页面内容-->
-    <div class="nav-page" :style="contentStyle"><text>发现</text></div>
+    <Find class="nav-page"/>
     <!-- 第三个页面内容-->
     <div class="nav-page" :style="contentStyle"><text>讲堂</text></div>
     <!-- 第四个页面内容-->
@@ -18,6 +18,7 @@
 <script>
 import { WxcTabBar, Utils } from 'weex-ui'
 import Read from './Read.vue'
+import Find from './Find.vue'
 let config = {
   tabIconFontTitles: [
     {
@@ -61,7 +62,7 @@ let config = {
 }
 
 export default {
-  components: { WxcTabBar, Read },
+  components: { WxcTabBar, Read, Find },
   data: () => ({
     tabIconFontTitles: config.tabIconFontTitles,
     tabIconFontStyles: config.tabIconFontStyles

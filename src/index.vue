@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NavFooter from '@/components/NavFooter.vue'
+import NavFooter from '@/views/NavFooter.vue'
 export default {
   name: 'App',
   components: {
